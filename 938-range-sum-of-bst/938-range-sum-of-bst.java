@@ -16,7 +16,16 @@
 class Solution {
     public int rangeSumBST(TreeNode root, int low, int high) {
         
-        return inorder(root,low,high);
+        //return inorder(root,low,high);
+        
+        if(root==null)
+            return 0;
+        if(root.val<low)//don't explore left
+           return rangeSumBST(root.right,low,high);
+        if(root.val>high)//then dont explore right
+           return rangeSumBST(root.left,low,high);
+        
+        return root.val+ rangeSumBST(root.right,low,high)+rangeSumBST(root.left,low,high);
     }
     
     public static int inorder(TreeNode root,int low,int high)
