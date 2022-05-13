@@ -30,7 +30,7 @@ class Solution {
             return dp[sr][sc];
         
         int count=0;
-        grid[sr][sc]=1;
+       // grid[sr][sc]=1;
         for(int d=0;d<dir.length;d++)
         {
             int r= sr+ dir[d][0];
@@ -41,7 +41,7 @@ class Solution {
                 count+=uniquePaths(grid,r,c,dr,dc,dir,dp);       
             }
         }
-        grid[sr][sc]=0;
+        //grid[sr][sc]=0;
         
         return dp[sr][sc]=count;
     }
