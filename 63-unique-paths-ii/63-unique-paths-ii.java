@@ -30,7 +30,7 @@ class Solution {
             return dp[sr][sc];
         
         int count=0;
-       // grid[sr][sc]=1;
+       // grid[sr][sc]=1; //we have not written this stmt because yw fn grid ka use bas obstacle check karne k liye use hota hai, baki sadhe tarike se movement hoti hai no flood fill is used only maze path
         for(int d=0;d<dir.length;d++)
         {
             int r= sr+ dir[d][0];
