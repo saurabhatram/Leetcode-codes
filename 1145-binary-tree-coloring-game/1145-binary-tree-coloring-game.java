@@ -39,12 +39,12 @@ class Solution {
     
     public boolean btreeGameWinningMove(TreeNode root, int n, int x) {
      
-        int totalNodes=size(root,x);
+        size(root,x);
         
-        int otherSide= totalNodes-(xkaLeft+xkaRight+1);
+        int otherSide= n-(xkaLeft+xkaRight+1);
         
         int player2nodes= Math.max(otherSide,Math.max(xkaLeft,xkaRight));
-        int player1nodes=totalNodes-player2nodes;
+        int player1nodes=n-player2nodes;
         if(player2nodes>player1nodes)
             return true;
         
