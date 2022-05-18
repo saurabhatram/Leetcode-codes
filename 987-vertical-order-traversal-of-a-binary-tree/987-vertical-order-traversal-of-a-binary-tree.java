@@ -49,7 +49,7 @@ class Solution {
         ArrayList<Integer> al = new ArrayList<>();
         
         Queue<Pair> qu= new LinkedList<>();
-        HashMap<Integer, ArrayList<Pair>> hm= new HashMap<>();
+    HashMap<Integer, PriorityQueue<Pair>> hm= new HashMap<>();
         
         qu.add(new Pair(root,0,0));
         
@@ -73,12 +73,12 @@ class Solution {
             //work
             if(hm.containsKey(rem.v)==true)
             {
-            ArrayList<Pair>  temp=hm.get(rem.v);
+            PriorityQueue<Pair>  temp=hm.get(rem.v);
             temp.add(rem);
             }
             else
             {
-                ArrayList<Pair> temp = new ArrayList<>();
+                PriorityQueue<Pair> temp = new PriorityQueue<Pair>();
                 temp.add(rem);
                 hm.put(rem.v,temp);
             }
@@ -98,13 +98,14 @@ class Solution {
         
         for(int i=minLeft;i<=maxRight;i++)
         {
-        ArrayList<Pair>  unsortedList= hm.get(i);
-            Collections.sort(unsortedList);
+        PriorityQueue<Pair>  unsortedList= hm.get(i);
+           
             
         ArrayList<Integer> sorted= new ArrayList<>();
-            for(int j=0;j<unsortedList.size();j++)
-            {
-                sorted.add(unsortedList.get(j).node.val);
+            while(unsortedList.size()!=0)
+            {   
+                Pair temp= unsortedList.remove();
+                sorted.add(temp.node.val);
             }
             
             li.add(sorted);
